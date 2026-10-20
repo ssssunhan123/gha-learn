@@ -19,26 +19,5 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
-      - name: Test Environment
-        continue-on-error: true
-        run: |
-          ls
-          ls \
-          python -V
-          node.exe --version
-          gcc --version
-          go --version
-          choco --version
-          pip -V
-          pipx -V
-          vcpkg --version
-          cmake --version
-          npm --version
-          7z --version
-          git --version
-          gdb --version
-          openssl --version
-          ninja --version
-          java -version
-          mvn -version
-          & "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\MSBuild.exe" --version
+      - name: Test Perl
+        run: perl --version
