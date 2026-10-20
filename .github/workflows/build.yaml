@@ -6,7 +6,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: windows-2022
 
     steps:
       - uses: actions/checkout@v4
@@ -19,8 +19,20 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
-      - name: setup-msbuild
-        uses: microsoft/setup-msbuild@v2
+      - name: Setup MSVC
+        uses: TheMrMilchmann/setup-msvc-dev@v4
+        with:
+          arch: x64
+      
+      - name: Setup NASM
+        uses: ilammy/setup-nasm@v1.5.2
 
-      - name: Test VS
+      - name: Test VS 1
         run: msbuild --version
+
+      - name: Test VS 2
+        continue-on-error: true
+        run: nmake --version
+
+      - name: Test MASM
+        run: nasm -v
