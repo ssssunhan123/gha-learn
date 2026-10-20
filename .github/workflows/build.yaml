@@ -19,5 +19,8 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
-      - name: Test Perl
-        run: perl --version
+      - name: setup-msbuild
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Test VS
+        run: msbuild --version
