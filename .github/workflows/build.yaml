@@ -1,0 +1,46 @@
+name: Learn Github Actions
+
+on:
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
+
+      - name: Test Environment
+        continue-on-error: true
+        run: |
+          ls
+          ls \
+          python -V
+          node.exe --version
+          gcc --version
+          go --version
+          choco --version
+          pip -V
+          pipx -V
+          vcpkg --version
+          cmake --version
+          npm --version
+          7z --version
+          git --version
+          gdb --version
+          openssl --version
+          ninja --version
+          java -version
+          mvn -version
+          psql --version
+          nginx --version
+          & "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\MSBuild.exe" --version
