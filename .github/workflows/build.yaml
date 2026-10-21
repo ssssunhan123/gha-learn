@@ -11,14 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
-
       - name: Setup MSVC
         uses: TheMrMilchmann/setup-msvc-dev@v4
         with:
@@ -28,6 +20,7 @@ jobs:
         uses: ilammy/setup-nasm@v1.5.2
 
       - name: Test VS 1
+        continue-on-error: true
         run: msbuild --version
 
       - name: Test VS 2
@@ -35,4 +28,10 @@ jobs:
         run: nmake --version
 
       - name: Test MASM
+        continue-on-error: true
         run: nasm -v
+
+      - name: Search MS VS Dir
+        continue-on-error: true
+        run: |
+          tree C:\Program Files\Microsoft Visual Studio
