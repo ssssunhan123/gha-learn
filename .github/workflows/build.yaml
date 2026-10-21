@@ -30,6 +30,7 @@ jobs:
           call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
           nmake /?
 
-      - name: Test NASM
+      - name: Text LLVM
         continue-on-error: true
-        run: nasm -v
+        run: |
+          clang -v
