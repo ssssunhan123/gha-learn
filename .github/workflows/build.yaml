@@ -34,4 +34,4 @@ jobs:
       - name: Search MS VS Dir
         continue-on-error: true
         run: |
-          tree C:\Program Files\Microsoft Visual Studio
+          tree "C:\Program Files\Microsoft Visual Studio"
